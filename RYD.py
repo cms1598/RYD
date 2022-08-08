@@ -22,7 +22,7 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 # TOKEN = 'MTAwNjA2MzcyNTM1NjI2NTUyMg.GscCpI.I1JCRdY8ANCqNOLhoHafenqMGNelFxtFmKqgmk'
-TOKEN = os.getenv("DISCORD_KEY")
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 client.run(TOKEN)
 # ssh -i C:\Users\crist\Desktop\RYD\RYD-keypair.pem ubuntu@ec2-3-95-207-0.compute-1.amazonaws.com
