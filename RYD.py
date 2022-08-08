@@ -1,17 +1,17 @@
-from discord.ext import commands
+import os
+
+import discord
+# from dotenv import load_dotenv
+
+# load_dotenv()
+TOKEN = 'MTAwNDU0NjI3MTU4OTE3NTM2OA.G4vmQL.XNO4DrHD1NeW8UKBT2z4cSg1FWzG9JuD-01zWM'
+
+client = discord.Client()
 
 
-client = commands.Bot(
-    command_prefix='!',
-    help_command=None
-)
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected to Discord!')
 
 
-@client.command()
-async def hello(ctx):
-    await ctx.send('Hello!')
-
-
-client.run(
-    'MTAwNDU0NjI3MTU4OTE3NTM2OA.G4vmQL.XNO4DrHD1NeW8UKBT2z4cSg1FWzG9JuD-01zWM'
-)
+client.run(TOKEN)
