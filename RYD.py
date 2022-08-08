@@ -20,7 +20,7 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
-TOKEN = 'MTAwNjA2MzcyNTM1NjI2NTUyMg.Gh24OF.zBOZEPTH-aXxddUU4ZMZwONwZvUej1vgkpaiGs'
+TOKEN = 'MTAwNjA2MzcyNTM1NjI2NTUyMg.GscCpI.I1JCRdY8ANCqNOLhoHafenqMGNelFxtFmKqgmk'
 
 print(TOKEN)
 
