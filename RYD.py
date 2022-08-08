@@ -14,4 +14,4 @@ async def on_ready():
     print(f'{client.user} has connected to Discord!')
 
 
-client.run('MTAwNDU0NjI3MTU4OTE3NTM2OA.G4vmQL.XNO4DrHD1NeW8UKBT2z4cSg1FWzG9JuD-01zWM')
+client.run('MTAwNDU0NjI3MTU4OTE3NTM2OA.Go3Ebo.Jp90AwpUPCTPwMXoTPBHE29YonirY71xqoXvg0')
