@@ -5,7 +5,8 @@ from dotenv import load_dotenv, find_dotenv
 
 
 load_dotenv(find_dotenv())
-TOKEN = os.getenv("DISCORD_TOKEN")
+# TOKEN = os.getenv("DISCORD_TOKEN")
+TOKEN = 'MTAwNDU0NjI3MTU4OTE3NTM2OA.G-vYHd.3IikdEvAp5jj-jroph-qsfLh2EJeY_eOYpGrTk'
 
 client = discord.Client()
 
