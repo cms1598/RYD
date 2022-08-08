@@ -3,6 +3,7 @@ import os
 import discord
 from dotenv import load_dotenv, find_dotenv
 
+load_dotenv(find_dotenv())
 
 client = discord.Client()
 
@@ -20,9 +21,8 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
-TOKEN = 'MTAwNjA2MzcyNTM1NjI2NTUyMg.GscCpI.I1JCRdY8ANCqNOLhoHafenqMGNelFxtFmKqgmk'
-
-print(TOKEN)
+# TOKEN = 'MTAwNjA2MzcyNTM1NjI2NTUyMg.GscCpI.I1JCRdY8ANCqNOLhoHafenqMGNelFxtFmKqgmk'
+TOKEN = os.getenv("DISCORD_KEY")
 
 client.run(TOKEN)
 # ssh -i C:\Users\crist\Desktop\RYD\RYD-keypair.pem ubuntu@ec2-3-95-207-0.compute-1.amazonaws.com
