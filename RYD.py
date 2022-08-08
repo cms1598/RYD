@@ -19,9 +19,9 @@ async def on_message(message):
         return
 
     if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+        await message.channel.send('Hola Elisa y Cristobal! Soy RYD, el nuevo secretario de Cristobal. Por ahora solo'
+                                   'existo, espero pronto tener todas mis funciones.')
 
-# TOKEN = 'MTAwNjA2MzcyNTM1NjI2NTUyMg.GscCpI.I1JCRdY8ANCqNOLhoHafenqMGNelFxtFmKqgmk'
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 client.run(TOKEN)
