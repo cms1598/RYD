@@ -14,6 +14,7 @@ client = discord.Client()
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
 
-print(TOKEN)
+# print(TOKEN)
+# ssh -i C:\Users\crist\Desktop\RYD\RYD-keypair.pem ubuntu@ec2-3-95-207-0.compute-1.amazonaws.com
 
-#client.run(TOKEN)
+client.run(TOKEN)
