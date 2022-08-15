@@ -29,8 +29,8 @@ async def on_command_error(ctx, error):
 
 @bot.command(name='hello', aliases=['hi', 'hola'], help='RYD\'s greeting.')
 async def on_message(ctx):
-    await ctx.channel.send('Hi Elisa y Cristobal! I\'m RYD, Cristobal\'s new personal assistant. For a while '
-                           'I\'m just living, hopefully I\'ll be with all my functions equipped soon.')
+    await ctx.channel.send("Hi Elisa y Cristobal! I'm RYD, Cristobal's new personal assistant. For a while, "
+                           "I'm just living. Hopefully I'll be with all my features working soon.")
 
 
 """

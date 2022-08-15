@@ -9,7 +9,7 @@ from datetime import datetime
 
 async def test_command(ctx):
     print("\n\n")
-    now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    now = datetime.now(pytz.timezone("Chile/Continental")).strftime("%d-%m-%Y %H:%M:%S")
     print(now, " --> Test command begins...")
 
     member = ctx.author

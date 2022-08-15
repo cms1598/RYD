@@ -1,4 +1,5 @@
 from datetime import datetime
+import pytz
 
 """
 #####################################################################
@@ -9,7 +10,7 @@ from datetime import datetime
 
 async def status_command(ctx):
     print("\n\n")
-    now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    now = datetime.now(pytz.timezone("Chile/Continental")).strftime("%d-%m-%Y %H:%M:%S")
     print(now, " --> Status command begins...")
     print("\n")
 
