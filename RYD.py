@@ -3,6 +3,8 @@ from dotenv import load_dotenv, find_dotenv
 import discord
 from discord.ext import commands, tasks
 
+from commands.test import test_command
+
 load_dotenv(find_dotenv())
 
 intents = discord.Intents.all()
@@ -20,10 +22,15 @@ async def on_command_error(ctx, error):
         return
 
 
-@bot.command(name='hello', aliases=['hi', 'hola'], help='Saludo de RYD')
-async def on_message(message):
-    await message.channel.send('Hola Elisa y Cristobal! Soy RYD, el nuevo secretario de Cristobal. Por ahora solo '
-                               'existo, espero pronto tener todas mis funciones.')
+@bot.command(name='hello', aliases=['hi', 'hola'], help='RYD\'s greeting.')
+async def on_message(ctx):
+    await ctx.channel.send('Hi Elisa y Cristobal! I\'m RYD, Cristobal\'s new personal assistant. For a while '
+                           'I\'m just living, hopefully I\'ll be with all my functions equipped soon.')
+
+
+@bot.command(name='test', aliases=['t'], help='Saludo de RYD')
+async def on_message(ctx):
+    await test_command(ctx)
 
 
 TOKEN = os.getenv("DISCORD_TOKEN")
