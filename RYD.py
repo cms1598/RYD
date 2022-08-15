@@ -1,28 +1,31 @@
 import os
-
-import discord
 from dotenv import load_dotenv, find_dotenv
+import discord
+from discord.ext import commands, tasks
 
 load_dotenv(find_dotenv())
 
-client = discord.Client()
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='$', intents=intents)
 
 
-@client.event
+@bot.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('We have logged in as {0.user}'.format(bot))
 
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, (commands.CommandNotFound, commands.CheckFailure)):
         return
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hola Elisa y Cristobal! Soy RYD, el nuevo secretario de Cristobal. Por ahora solo'
-                                   'existo, espero pronto tener todas mis funciones.')
+
+@bot.command(name='hello', aliases=['hi', 'hola'], help='Saludo de RYD')
+async def on_message(message):
+    await message.channel.send('Hola Elisa y Cristobal! Soy RYD, el nuevo secretario de Cristobal. Por ahora solo '
+                               'existo, espero pronto tener todas mis funciones.')
+
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
-client.run(TOKEN)
-# ssh -i C:\Users\crist\Desktop\RYD\RYD-keypair.pem ubuntu@ec2-3-95-207-0.compute-1.amazonaws.com
+bot.run(TOKEN)
