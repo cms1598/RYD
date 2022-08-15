@@ -3,10 +3,15 @@ from dotenv import load_dotenv, find_dotenv
 import discord
 from discord.ext import commands, tasks
 
-from commands.test import test_command
+import commands.test as t
+import commands.elisa as e
 
+# -------------- Env variables --------------
 load_dotenv(find_dotenv())
 
+TOKEN = os.getenv("DISCORD_TOKEN")
+
+# ---------------- Bot setup ----------------
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='$', intents=intents)
 
@@ -28,11 +33,31 @@ async def on_message(ctx):
                            'I\'m just living, hopefully I\'ll be with all my functions equipped soon.')
 
 
-@bot.command(name='test', aliases=['t'], help='Saludo de RYD')
-async def on_message(ctx):
-    await test_command(ctx)
+"""
+#####################################################################
+######################### TESTING FUNCTIONS #########################
+#####################################################################
+"""
 
 
-TOKEN = os.getenv("DISCORD_TOKEN")
+@bot.command(name='test', aliases=['t'], help='Testing command. Looks for info and help to understand'
+                                              'some behaviour')
+async def test(ctx):
+    await t.test_command(ctx)
+
+
+"""
+#####################################################################
+######################### ELISA'S FUNCTIONS #########################
+#####################################################################
+"""
+
+
+@bot.command(name='status', help='Status command. Tell Elisa what is my current status.')
+@commands.has_any_role("Elisa")
+async def status(ctx):
+    await e.status_command(ctx)
+
+
 
 bot.run(TOKEN)
