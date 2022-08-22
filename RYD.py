@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 import discord
 from discord.ext import commands, tasks
+import asyncio
 
 import commands.test as t
 import commands.elisa as e
@@ -10,6 +11,7 @@ import commands.elisa as e
 load_dotenv(find_dotenv())
 
 TOKEN = os.getenv("DISCORD_TOKEN")
+DB_PASSWORD = os.getenv("DB_PASS")
 
 # ---------------- Bot setup ----------------
 intents = discord.Intents.all()
@@ -46,6 +48,11 @@ async def test(ctx):
     await t.test_command(ctx)
 
 
+@bot.command(name='db_test', aliases=['db'], help='Testing db connection.')
+async def test(ctx):
+    await t.test_db(ctx, DB_PASSWORD)
+
+
 """
 #####################################################################
 ######################### ELISA'S FUNCTIONS #########################
@@ -57,7 +64,6 @@ async def test(ctx):
 @commands.has_any_role("Elisa")
 async def status(ctx):
     await e.status_command(ctx)
-
 
 
 bot.run(TOKEN)
